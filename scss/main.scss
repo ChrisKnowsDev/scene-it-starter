@@ -1,0 +1,47 @@
+@import 'config';
+@import 'utility';
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: $color-dark;
+  line-height: 1.5;
+  letter-spacing: 2px;
+  font-family: 'Montserrat', sans-serif;
+  color: $color-light;
+}
+
+// Header
+header {
+  text-align: center;
+  margin: auto;
+  padding: 1rem;
+
+  input {
+    display: block;
+    width: 100%;
+    margin: auto;
+    padding: 0.5rem;
+    border-radius: 3px;
+    outline: none;
+    border: none;
+    margin-top: 0.5rem;
+  }
+
+  button {
+    display: inline-block;
+    background-color: $color-primary;
+    color: $color-dark;
+    width: 100%;
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+    outline: none;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+}
