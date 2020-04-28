@@ -81,9 +81,31 @@ const movieData = [
   },
 ];
 
-window.addEventListener('DOMContentLoaded', event => {
-  console.log('DOM full loaded and parsed');
+window.addEventListener('DOMContentLoaded', () => {
+  // DOM variables
+  const movieContainer = document.querySelector('#movies .container');
+  const searchForm = document.querySelector('#search-form');
+
+  // Render Movies
   function renderMovies(movieArr) {
-    console.log(movieArr);
+    const movieHtmlArray = movieArr.map(
+      currentMovie => `
+       <div class="movie">
+          <img src="${currentMovie.Poster}" alt="" />
+          <div class="movie-info">
+            <h3 class="movie-title">${currentMovie.Title}</h3>
+            <p class="date">${currentMovie.Year}</p>
+            <button>Add</button>
+          </div>
+        </div>
+      `
+    );
+    return movieHtmlArray.join('');
   }
+
+  // Listen for form submit
+  searchForm.addEventListener('submit', e => {
+    e.preventDefault();
+    movieContainer.innerHTML = renderMovies(movieData);
+  });
 });
