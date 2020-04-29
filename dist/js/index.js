@@ -20,6 +20,7 @@ window.addEventListener('DOMContentLoaded', () => {
         </div>
       `
     );
+    searchInput.value = '';
     return movieHtmlArray.join('');
   }
 
@@ -27,8 +28,6 @@ window.addEventListener('DOMContentLoaded', () => {
   searchForm.addEventListener('submit', e => {
     e.preventDefault();
     const searchValue = searchInput.value;
-    console.log(searchValue);
-    console.log(searchValue);
     const searchEndpoint = `http://www.omdbapi.com/?s=${searchValue}&apikey=c9d5a7f0`;
     const moviePromise = fetch(searchEndpoint);
     moviePromise
