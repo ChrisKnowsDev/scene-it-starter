@@ -23,7 +23,7 @@ movieContainer.innerHTML = renderMovies(watchlistParsed);
 
 // Remove form local storage
 function removeFromWatchList(title) {
-  // use filter to find by id and localstorage.removeItem()
-  const movieToDelete = watchlistParsed.filter(movie => movie.Title === title);
-  localStorage.removeItem(movieToDelete);
+  const returnMovies = watchlistParsed.filter(movie => movie.Title !== title);
+  const stringyMovies = JSON.stringify(returnMovies);
+  localStorage.setItem('watchlist', stringyMovies);
 }
