@@ -26,4 +26,5 @@ function removeFromWatchList(title) {
   const returnMovies = watchlistParsed.filter(movie => movie.Title !== title);
   const stringyMovies = JSON.stringify(returnMovies);
   localStorage.setItem('watchlist', stringyMovies);
+  movieContainer.innerHTML = renderMovies(returnMovies);
 }
