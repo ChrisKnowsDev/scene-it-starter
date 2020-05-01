@@ -15,7 +15,9 @@ function renderMovies(movieArr) {
     <div class="movie-info">
       <h3 class="movie-title">${currentMovie.Title}</h3>
       <p class="date">${currentMovie.Year}</p>
-      <button onclick="saveToWatchList('${currentMovie.imdbID}')">Add</button>
+      <button id='btn-${currentMovie.imdbID}' onclick="saveToWatchList('${
+      currentMovie.imdbID
+    }')">Add</button>
     </div>
   </div>`
   );
@@ -41,6 +43,8 @@ searchForm.addEventListener('submit', e => {
 
 // save movie to watchlist
 function saveToWatchList(id) {
+  const btn = document.getElementById(`btn-${id}`);
+  btn.textContent = 'Added';
   const searchEndpoint = `https://www.omdbapi.com/?i=${id}&apikey=c9d5a7f0`;
   const moviePromise = fetch(searchEndpoint);
   moviePromise
