@@ -1,6 +1,6 @@
-const watchlist = localStorage.getItem('watchlist');
-const watchlistParsed = JSON.parse(watchlist);
 const movieContainer = document.querySelector('#movies .container');
+let watchlist = localStorage.getItem('watchlist');
+let watchlistParsed = JSON.parse(watchlist);
 
 // Render movies
 function renderMovies(movieArr) {
@@ -23,6 +23,8 @@ movieContainer.innerHTML = renderMovies(watchlistParsed);
 
 // Remove form local storage
 function removeFromWatchList(title) {
+  watchlist = localStorage.getItem('watchlist');
+  watchlistParsed = JSON.parse(watchlist);
   const returnMovies = watchlistParsed.filter(movie => movie.Title !== title);
   const stringyMovies = JSON.stringify(returnMovies);
   localStorage.setItem('watchlist', stringyMovies);
