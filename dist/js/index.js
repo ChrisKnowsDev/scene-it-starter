@@ -1,12 +1,17 @@
 const movieContainer = document.querySelector('#movies .container');
 const searchForm = document.getElementById('search-form');
 const searchInput = document.getElementById('search-input');
+const noImage = './images/no_image.png';
 
 // Render movies
 function renderMovies(movieArr) {
   const movieHtmlArray = movieArr.map(
     currentMovie => `<div class="movie">
-    <img src="${currentMovie.Poster}" alt="" />
+    <img src="${
+      currentMovie.Poster === 'N/A'
+        ? './images/no_image.png'
+        : currentMovie.Poster
+    }" alt="" />
     <div class="movie-info">
       <h3 class="movie-title">${currentMovie.Title}</h3>
       <p class="date">${currentMovie.Year}</p>
