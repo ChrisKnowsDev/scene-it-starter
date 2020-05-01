@@ -75,7 +75,7 @@ header {
   }
 
   img {
-    height: 400px;
+    height: 350px;
   }
 
   .movie {
@@ -101,6 +101,12 @@ header {
       padding: 1rem;
       display: flex;
       flex-direction: column;
+      align-items: center;
+      height: 200px;
+
+      button {
+        margin-top: auto;
+      }
     }
   }
 }

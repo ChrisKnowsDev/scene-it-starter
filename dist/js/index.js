@@ -31,6 +31,7 @@ searchForm.addEventListener('submit', e => {
       movieContainer.innerHTML = renderMovies(data.Search);
     })
     .catch(err => console.log(err));
+  searchInput.value = '';
 });
 
 // save movie to watchlist
