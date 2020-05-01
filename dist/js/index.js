@@ -23,7 +23,7 @@ searchForm.addEventListener('submit', e => {
   e.preventDefault();
   const searchValue = searchInput.value;
   const urlEncoded = encodeURIComponent(searchValue);
-  const searchEndpoint = `http://www.omdbapi.com/?s=${urlEncoded}&apikey=c9d5a7f0`;
+  const searchEndpoint = `https://www.omdbapi.com/?s=${urlEncoded}&apikey=c9d5a7f0`;
   const moviePromise = fetch(searchEndpoint);
   moviePromise
     .then(response => response.json())
@@ -35,7 +35,7 @@ searchForm.addEventListener('submit', e => {
 
 // save movie to watchlist
 function saveToWatchList(id) {
-  const searchEndpoint = `http://www.omdbapi.com/?i=${id}&apikey=c9d5a7f0`;
+  const searchEndpoint = `https://www.omdbapi.com/?i=${id}&apikey=c9d5a7f0`;
   const moviePromise = fetch(searchEndpoint);
   moviePromise
     .then(response => response.json())
