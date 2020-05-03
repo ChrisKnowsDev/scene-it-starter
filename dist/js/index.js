@@ -51,8 +51,11 @@ function saveToWatchList(id) {
   moviePromise
     .then(response => response.json())
     .then(data => {
-      let watchlistJSON = localStorage.getItem('watchlist') || [];
-      const watchlist = JSON.parse(watchlistJSON);
+      let watchlistJSON = localStorage.getItem('watchlist');
+      let watchlist = JSON.parse(watchlistJSON);
+      if (watchlist === null) {
+        watchlist = [];
+      }
       if (watchlist.find(movie => movie.imdbID === id)) {
         alert('Already here');
         return;
