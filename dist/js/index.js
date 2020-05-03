@@ -53,6 +53,10 @@ function saveToWatchList(id) {
     .then(data => {
       let watchlistJSON = localStorage.getItem('watchlist') || [];
       const watchlist = JSON.parse(watchlistJSON);
+      if (watchlist.find(movie => movie.imdbID === id)) {
+        alert('Already here');
+        return;
+      }
       watchlist.push(data);
       watchlistJSON = JSON.stringify(watchlist);
       localStorage.setItem('watchlist', watchlistJSON);
