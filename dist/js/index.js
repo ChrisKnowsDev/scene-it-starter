@@ -44,6 +44,13 @@ searchForm.addEventListener('submit', e => {
 
 // save movie to watchlist
 function saveToWatchList(id) {
+  let watchlistJSON = localStorage.getItem('watchlist');
+  let watchlist = JSON.parse(watchlistJSON);
+  watchlist.forEach(movie => {
+    if (movie.imdbID === id) {
+      console.log('already saved');
+    }
+  });
   const btn = document.getElementById(`btn-${id}`);
   btn.textContent = 'Added';
   const searchEndpoint = `https://www.omdbapi.com/?i=${id}&apikey=c9d5a7f0`;
@@ -51,8 +58,8 @@ function saveToWatchList(id) {
   moviePromise
     .then(response => response.json())
     .then(data => {
-      let watchlistJSON = localStorage.getItem('watchlist');
-      let watchlist = JSON.parse(watchlistJSON);
+      watchlistJSON = localStorage.getItem('watchlist');
+      watchlist = JSON.parse(watchlistJSON);
       if (watchlist == null) {
         watchlist = [];
       }
