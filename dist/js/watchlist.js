@@ -12,10 +12,12 @@ function renderMovies(movieArr) {
           <div class="movie-info">
             <h3 class="movie-title">${currentMovie.Title}</h3>
             <p class="date">${currentMovie.Year}</p>
+            <a>More Info</a>
             <button onclick="removeFromWatchList('${currentMovie.Title}')">Remove</button>
           </div>
         </div>`;
     }
+    return `<p>You don't currently have any movies in your watchlist</p>`;
   });
   return movieHtmlArray.join('');
 }

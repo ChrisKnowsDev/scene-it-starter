@@ -15,6 +15,7 @@ function renderMovies(movieArr) {
     <div class="movie-info">
       <h3 class="movie-title">${currentMovie.Title}</h3>
       <p class="date">${currentMovie.Year}</p>
+      <a href='#'>More Info</a>
       <button id='btn-${currentMovie.imdbID}' onclick="saveToWatchList('${
       currentMovie.imdbID
     }')">Add</button>
